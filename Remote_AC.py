@@ -1,44 +1,63 @@
-def max(status):
-    import serial  
-    import time  
-
-    locations=[
-    '/dev/tty.usbserial-A700dYwR',
-    '/dev/ttyUSB0','/dev/ttyUSB1','/dev/ttyUSB2','/dev/ttyUSB3',  
-    '/dev/ttyS0','/dev/ttyS1','/dev/ttyS2','/dev/ttyS3']    
-
+def connect():
+    import serial
+    locations= ['/dev/tty.usbserial-A700dYwR']
     for device in locations:    
         try:    
             print "Trying...",device  
-            arduino = serial.Serial(device, 9600)   
+            robot = serial.Serial(device, 9600)   
+            print "connected"
             break  
         except:    
-            print "Failed to connect on",device     
+            print "Failed to connect on",device    
+            robot = False
+    return robot
 
-    loop = 1
-    while loop:
-        command = 'On' if status else 'Off'
-        if command == 'On':
-            try:    
-                arduino.write('Y')    
-                time.sleep(1)  
-                print arduino.readline()  
-                print 'On!'
-            except:    
-                print "Failed to send!"   
-            loop = 0
-        elif command == 'Off':
-            try:    
-                arduino.write('N')    
-                time.sleep(1)  
-                print arduino.readline()  
-                print 'Off!'
-            except:    
-                print "Failed to send!"
-            loop = 0
-        elif command == 'end' or command == 'End' or command == 'END':
-            print "End!"
-            loop = 0
-        else:
-            print('Command does not compute.')
-    return "Max is complete."
+def max(status):
+    arduino = connect()
+    if arduino: on(arduino) if status else off(arduino)
+    return "Max is complete.\n"
+
+def max2(AC):
+    arduino = connect()
+    off(arduino)
+
+    print "Temperature:"
+    for t in range(89, 60, -1):
+        blink(arduino, .1) 
+        print t
+    for t in range(60, AC.temperature+1):
+        blink(arduino, .2) 
+        print t
+    print "Fan speed:"
+    for t in range(2, 1, -1):
+        blink(arduino, .5) 
+        print t
+    for t in range(1, AC.fanSpeed+1):
+        blink(arduino, .5) 
+        print t
+    print "power: " + str(AC.isOn)
+    on(arduino) if AC.isOn else off(arduino)
+    print "cool: on"
+    return "Max2 is complete.\n"
+
+def on(robot):
+    try:    
+        robot.write('Y')    
+        print 'On!'
+#        print robot.readline().rstrip()  
+    except:    
+        print "Failed to send!"   
+
+def off(robot):
+    try:    
+        robot.write('N')    
+        print 'Off!'
+#        print robot.readline().rstrip()  
+    except:    
+        print "Failed to send!"   
+
+def blink(robot, pause):
+    from time import sleep
+    on(robot)
+    sleep(pause)
+    off(robot)
