@@ -1,0 +1,8 @@
+*.pyc
+*/*.pyc
+*.py~
+*/*.py~
+*#
+.DS_STORE
+*.db
+*~

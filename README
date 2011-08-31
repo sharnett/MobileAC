@@ -1,0 +1,5 @@
+run the webserver from the terminal:
+python manage.py runserver
+
+then in your browser:
+http://127.0.0.1:8000/1/
