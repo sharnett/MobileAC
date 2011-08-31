@@ -6,7 +6,8 @@ class Switch(models.Model):
     name = models.CharField(max_length=30)
     def save(self, *args, **kwargs):
         super(Switch, self).save(*args, **kwargs)
-        print max(self.isOn)
+        if max(self.isOn): print "it worked"
+        else: print "it failed"
     def __unicode__(self):
         return self.name
     class Meta:
@@ -17,7 +18,7 @@ class AC(Switch):
     fanSpeed = models.IntegerField(verbose_name='Fan Speed', default=1, choices=((1,'lo'), (2,'med'), (3,'hi')))
     def save(self, *args, **kwargs):
         super(AC, self).save(*args, **kwargs)
-#        print max2(self)
+        print max2(self)
     class Meta:
         verbose_name = "AC"
         verbose_name_plural = "ACs"

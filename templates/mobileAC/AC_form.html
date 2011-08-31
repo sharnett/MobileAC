@@ -28,6 +28,7 @@
     </head>
     <div class="controller">
         <h2> {{object.name}} </h2>
+        <hr />
         <form method='post' action=''>{% csrf_token %}
             {{ form.as_p }}
             <input class="submit" type='submit' value="Send command to robot" />
