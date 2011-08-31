@@ -1,7 +1,36 @@
 <html>
-    <p> {{object.name}} </p>
-    <form method='post' action=''>{% csrf_token %}
-        {{ form.as_p }}
-        <input type='submit' value="Submit" />
-    </form>
+    <head>
+        <style type="text/css">
+            .controller {
+                display: inline-block;
+                background-color: 99CC99;
+                border: 3px solid black;
+                -moz-border-radius: 20px;
+                -webkit-border-radius: 20px;
+                -khtml-border-radius: 20px;
+                border-radius: 20px;
+                margin-left: 10px;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+            .submit {
+                display: inline-block;
+                padding: 5px 10px;
+                background-color: 003366;
+                color: white;
+                border: 2px solid black;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -khtml-border-radius: 10px;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <div class="controller">
+        <h2> {{object.name}} </h2>
+        <form method='post' action=''>{% csrf_token %}
+            {{ form.as_p }}
+            <input class="submit" type='submit' value="Send command to robot" />
+        </form>
+    </div>
 </html>
