@@ -1,0 +1,35 @@
+.controller {
+    display: inline-block;
+    background-color: 99CC99;
+    border: 3px solid black;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.submit {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: 003366;
+    color: white;
+    border: 2px solid black;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+.conditions {
+    display: inline-block;
+    background-color: 99CC99;
+    border: 3px solid black;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

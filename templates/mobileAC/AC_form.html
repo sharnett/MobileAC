@@ -1,30 +1,7 @@
 <html>
     <head>
-        <style type="text/css">
-            .controller {
-                display: inline-block;
-                background-color: 99CC99;
-                border: 3px solid black;
-                -moz-border-radius: 20px;
-                -webkit-border-radius: 20px;
-                -khtml-border-radius: 20px;
-                border-radius: 20px;
-                margin-left: 10px;
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            .submit {
-                display: inline-block;
-                padding: 5px 10px;
-                background-color: 003366;
-                color: white;
-                border: 2px solid black;
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                -khtml-border-radius: 10px;
-                border-radius: 10px;
-            }
-        </style>
+        <title> {{object.name}} </title>
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mystyle.css" />
     </head>
     <div class="controller">
         <h2> {{object.name}} </h2>
@@ -33,5 +10,13 @@
             {{ form.as_p }}
             <input class="submit" type='submit' value="Send command to robot" />
         </form>
+    </div>
+    <div class="conditions">
+        <center> <h3> recent temperatures and humidities </h3> </center>
+        <table>
+            {% for reading in object.thermometer_set.all.0.thermoreading_set.all %} 
+            <tr> <td>{{reading.time}} <td>{{reading.temperature}}&deg;F, <td>{{reading.humidity}}&#37; humidity </tr>
+            {% endfor %}
+        </table>
     </div>
 </html>
