@@ -7,6 +7,7 @@
 
 def connect():
     import serial
+    # add more locations here
     locations= ['/dev/tty.usbserial-A700dYwR']
     for device in locations:    
         try:    
@@ -31,16 +32,18 @@ def max(on):
 def max2(AC):
     arduino = connect()
     if arduino:
-        if not checkOn(arduino): command(arduino, 'P')
+        if not checkOn(arduino): command(arduino, 'P') # turn it on if it isn't already
 
+# would be smarter to have a function on the arduino for
+# "set to minimum temperature" and "set minimum fan speed"
         print "Temperature:"
-        for t in range(89, 60, -1): command(arduino, 'D')
-        for t in range(60, AC.temperature+1): command(arduino, 'U')
+        for t in range(89, 60, -1): command(arduino, 'D') # bring it down to 60 degrees
+        for t in range(60, AC.temperature+1): command(arduino, 'U') # bring it up to desired temp
         print "Fan speed:"
-        for t in range(2, 1, -1): command(arduino, 'L')
-        for t in range(1, AC.fanSpeed+1): command(arduino, 'R')  
+        for t in range(2, 1, -1): command(arduino, 'L') # bring it down to lo speed
+        for t in range(1, AC.fanSpeed+1): command(arduino, 'R')  # bring it up to desired speed
         print "power: " + str(AC.isOn)
-        if not AC.isOn: command(arduino, 'P')
+        if not AC.isOn: command(arduino, 'P') # turn it off if they want it off
         print "cool: on"
 
         success = 1
