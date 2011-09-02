@@ -31,7 +31,7 @@ def max(on):
 def max2(AC):
     arduino = connect()
     if arduino:
-        if not on: command(arduino, 'P')
+        if not checkOn(arduino): command(arduino, 'P')
 
         print "Temperature:"
         for t in range(89, 60, -1): command(arduino, 'D')
@@ -40,6 +40,7 @@ def max2(AC):
         for t in range(2, 1, -1): command(arduino, 'L')
         for t in range(1, AC.fanSpeed+1): command(arduino, 'R')  
         print "power: " + str(AC.isOn)
+        if not AC.isOn: command(arduino, 'P')
         print "cool: on"
 
         success = 1
@@ -54,3 +55,10 @@ def command(robot, cmd):
         print "sent %s to the robot" % (cmd,)
     except:    
         print "Failed to send: %s" % (cmd,)
+
+# this won't work because I think it will just hang on readline()
+# but we need something like this
+def checkOn(robot):
+    command(robot, 'D')
+    x = robot.readline()
+    return True if x else False
