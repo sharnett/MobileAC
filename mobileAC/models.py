@@ -22,3 +22,17 @@ class AC(Switch):
     class Meta:
         verbose_name = "AC"
         verbose_name_plural = "ACs"
+
+class Thermometer(models.Model):
+    AC = models.ForeignKey(AC)
+    name = models.CharField(max_length=30)
+    def __unicode__(self):
+        return self.name
+
+class ThermoReading(models.Model):
+    thermometer = models.ForeignKey(Thermometer)
+    time = models.DateTimeField()
+    temperature = models.DecimalField(max_digits=5, decimal_places=1)
+    humidity = models.DecimalField(max_digits=5, decimal_places=1)
+    def __unicode__(self):
+        return "temp: %5.1f hum: %5.1f" % (self.temperature, self.humidity)
