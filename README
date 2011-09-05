@@ -1,6 +1,5 @@
 MUST CHANGE:
-settings.py -- templates directory
-Remote_AC.py -- device location
+Remote_AC.py -- device locations
 
 run the webserver from the terminal:
 python manage.py runserver
