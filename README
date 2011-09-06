@@ -1,3 +1,6 @@
+DEPENDENCY:
+pySerial
+
 MUST CHANGE:
 Remote_AC.py -- device locations
 
