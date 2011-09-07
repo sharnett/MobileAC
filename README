@@ -25,3 +25,7 @@ GETTING STARTED
 9) run the server: python manage.py runserver
 10) go to http://127.0.0.1:8000/1/
 11) enjoy
+
+FOR SEAN:
+combine steps 4-8 --
+https://docs.djangoproject.com/en/dev/howto/initial-data/
