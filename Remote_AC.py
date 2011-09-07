@@ -8,7 +8,7 @@
 def connect():
     import serial
     # add more locations here
-    locations= ['/dev/tty.usbserial-A700dYwR']
+    locations= ['/dev/tty.usbmodemfd141', '/dev/tty.usbserial-A700dYwR']
     for device in locations:    
         try:    
             print "Trying...",device  
@@ -32,6 +32,7 @@ def max(on):
 def max2(AC):
     arduino = connect()
     if arduino:
+        command(arduino, 'Y')
         if not checkOn(arduino): command(arduino, 'P') # turn it on if it isn't already
 
 # would be smarter to have a function on the arduino for
