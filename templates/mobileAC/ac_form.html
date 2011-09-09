@@ -14,6 +14,12 @@
         </div>
         <div class="box">
             {{object.thermometer_set.all.0.googleGraph|safe}}
+            <hr/>
+            <h3> Last reading </h3>
+            <p>
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.temperature}}
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.humidity}}
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.time}}
         </div>
     </body>
 </html>
