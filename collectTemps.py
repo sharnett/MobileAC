@@ -28,7 +28,10 @@ def command(robot, cmd):
     line = robot.readline().strip()
     if line:
         m = re.search(r'(\d+\.\d+)\s+(\d+\.\d+)', line)
-        result = [.1*round(10*float(m.group(1))), float(m.group(2))]
+        if m: result = [.1*round(10*float(m.group(1))), float(m.group(2))]
+        else: 
+            print line
+            result = 0
     else: 
         print "failed to read line"
         result = 0
@@ -47,7 +50,7 @@ def insertReading(conn, curs, t, h):
 arduino = connect()
 db = sqlite3.connect('db.db')
 c = db.cursor()
-for i in range(4*10): 
+while (1):
     result = command(arduino, 'r')
     if result:
         insertReading(db, c, result[0], result[1])
