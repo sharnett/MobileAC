@@ -34,8 +34,8 @@ class Thermometer(models.Model):
         readings = self.thermoreading_set.all()[:n]
         temps = [float(reading.temperature) for reading in readings]
         hums = [float(reading.humidity) for reading in readings]
-        print temps
-        print hums
+        temps.reverse()
+        hums.reverse()
 
         # scaling bullshit
         tempMin, tempMax, humMin, humMax = [min(temps), max(temps), min(hums), max(hums)]
@@ -45,8 +45,6 @@ class Thermometer(models.Model):
         humMax = 10*ceil(.1*humMax)
         temps = ','.join([str(99*(temp - tempMin)/(tempMax - tempMin)) for temp in temps])
         hums = ','.join([str(99*(hum - humMin)/(humMax - humMin)) for hum in hums])
-        print temps
-        print hums
         
         src = '''
         "http://chart.apis.google.com/chart
