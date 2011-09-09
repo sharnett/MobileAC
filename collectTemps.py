@@ -8,7 +8,7 @@ from datetime import datetime
 def connect():
     import serial
     # add more locations here
-    locations= ['/dev/tty.usbmodemfd141', '/dev/tty.usbserial-A700dYwR']
+    locations= ['/dev/ttyACM0', '/dev/tty.usbmodemfd141', '/dev/tty.usbserial-A700dYwR']
     for device in locations:    
         try:    
             print "Trying...",device  
