@@ -2,26 +2,16 @@ DEPENDENCY:
 pySerial
 
 MUST CHANGE:
-Remote_AC.py -- device locations
-
-run the webserver from the terminal:
-python manage.py runserver
-
-then in your browser:
-http://127.0.0.1:8000/1/
-
+Remote_AC.py -- device locations. Yours are probably named something else.
 
 GETTING STARTED
 1) install django: https://www.djangoproject.com/download/
+   (apt/synaptic/package manager might only have version 1.2, this needs 1.3+ so use the above link)
 2) if necessary, install pySerial: 
     * http://pypi.python.org/pypi/pyserial
     * sudo python setup.py install
 3) go to the MobileAC directory 
 4) create the initial database: python manage.py syncdb
-5) open a browser and go to http://127.0.0.1:8000/admin/
-6) sign in with info you created in step 4
-7) add an AC
-8) add a thermometer to the AC with at least 4 readings
-9) run the server: python manage.py runserver
-10) go to http://127.0.0.1:8000/1/
-11) enjoy
+5) run the server: python manage.py runserver
+6) go to http://127.0.0.1:8000/1/
+7) enjoy
