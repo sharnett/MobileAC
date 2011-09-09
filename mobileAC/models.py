@@ -30,7 +30,7 @@ class Thermometer(models.Model):
     def __unicode__(self):
         return self.name
     def googleGraph(self):
-        n = 40 # number of readings to graph
+        n = 12 # number of readings to graph
         readings = self.thermoreading_set.all()[:n]
         temps = [float(reading.temperature) for reading in readings]
         hums = [float(reading.humidity) for reading in readings]
@@ -61,7 +61,7 @@ class Thermometer(models.Model):
         &chdlp=b
         &chg=34,0,0,0
         &chma=|4
-        &chtt=Current+Conditions"''' % (tempMin, tempMax, humMin, humMax, temps, hums)
+        &chtt=Current+Conditions"''' % (humMin, humMax, tempMin, tempMax, temps, hums)
         src = ''.join(src.split())
         myUrl = '''<img src=%s width="250" height="168" alt="Current Conditions" />''' % src
         return myUrl
