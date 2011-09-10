@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> List of thermometer readings </title>
+        <style>
+            td {
+                text-align:right;
+                padding-right:5px;
+            }
+        </style>
+    </head>
+    <body>
+        {% if reading_list %}
+        <table>
+            {% for reading in reading_list%}
+            <tr>
+                <td>{{reading.time|date:"n/j/y" }}</td>
+                <td>{{reading.time|date:"g:i:s" }}</td>
+                <td>{{reading.temperature}}&deg;F</td>
+                <td>{{reading.humidity}}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No readings are available.</p>
+        {% endif %}
+    </body>
+</html>
