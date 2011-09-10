@@ -39,10 +39,10 @@ class Thermometer(models.Model):
 
         # scaling bullshit
         tempMin, tempMax, humMin, humMax = [min(temps), max(temps), min(hums), max(hums)]
-        tempMin = 10*floor(.1*tempMin)
-        humMin = 10*floor(.1*humMin)
-        tempMax = 10*ceil(.1*tempMax)
-        humMax = 10*ceil(.1*humMax)
+        tempMin = 5*floor(.2*tempMin)
+        humMin = 5*floor(.2*humMin)
+        tempMax = 5*ceil(.2*tempMax)
+        humMax = 5*ceil(.2*humMax)
         temps = ','.join([str(99*(temp - tempMin)/(tempMax - tempMin)) for temp in temps])
         hums = ','.join([str(99*(hum - humMin)/(humMax - humMin)) for hum in hums])
         

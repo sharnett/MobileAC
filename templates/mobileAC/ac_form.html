@@ -15,11 +15,13 @@
         <div class="box">
             {{object.thermometer_set.all.0.googleGraph|safe}}
             <hr/>
-            <h3> Last reading </h3>
+            <h3> Most recent </h3>
             <p>
-            {{object.thermometer_set.all.0.thermoreading_set.all.0.temperature}}
-            {{object.thermometer_set.all.0.thermoreading_set.all.0.humidity}}
-            {{object.thermometer_set.all.0.thermoreading_set.all.0.time}}
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.temperature}}&deg;F,
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.humidity}}%
+            on
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.time|date:"n/j/y g:i:s" }}
+            </p>
         </div>
     </body>
 </html>
