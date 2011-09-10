@@ -32,6 +32,7 @@ def max(on):
 def max2(AC):
     arduino = connect()
     if arduino:
+        command(arduino, 'Y')
         if not checkOn(arduino): command(arduino, 'P') # turn it on if it isn't already
 
 # would be smarter to have a function on the arduino for

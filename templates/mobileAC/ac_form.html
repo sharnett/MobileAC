@@ -1,22 +1,27 @@
 <html>
     <head>
-        <title> {{object.name}} </title>
         <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}mystyle.css" />
+        <title> {{object.name}} </title>
     </head>
-    <div class="controller">
-        <h2> {{object.name}} </h2>
-        <hr />
-        <form method='post' action=''>{% csrf_token %}
-            {{ form.as_p }}
-            <input class="submit" type='submit' value="Send command to robot" />
-        </form>
-    </div>
-    <div class="conditions">
-        <center> <h3> recent temperatures and humidities </h3> </center>
-        <table>
-            {% for reading in object.thermometer_set.all.0.thermoreading_set.all %} 
-            <tr> <td>{{reading.time}} <td>{{reading.temperature}}&deg;F, <td>{{reading.humidity}}&#37; humidity </tr>
-            {% endfor %}
-        </table>
-    </div>
+    <body>
+        <div class="controller">
+            <h2> {{object.name}} </h2>
+            <hr />
+            <form method='post' action=''>{% csrf_token %}
+                {{ form.as_p }}
+                <input class="submit" type='submit' value="Send command to robot" />
+            </form>
+        </div>
+        <div class="box">
+            {{object.thermometer_set.all.0.googleGraph|safe}}
+            <hr/>
+            <h3> Most recent </h3>
+            <p>
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.temperature}}&deg;F,
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.humidity}}%
+            on
+            {{object.thermometer_set.all.0.thermoreading_set.all.0.time|date:"n/j/y g:i:s" }}
+            </p>
+        </div>
+    </body>
 </html>
