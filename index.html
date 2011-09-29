@@ -1,1 +1,70 @@
-My GitHub Page
+<html>
+    <head>
+        <title> Control your AC from a website </title>
+        <style> 
+            body {
+                max-width: 760px;
+                margin: 15px auto;
+                font-size: large;
+                font-family: "verdana";
+            }
+        </style>
+    </head>
+    <body>
+        <hr />
+        <center> <h1> MobileAC </h1> </center>
+        <hr />
+        <p>
+        Say you get off work early and want to go home and relax for a bit, but you're afraid your place is too damn hot. Wouldn't it be nice to see just how hot it is, and maybe turn on the air conditioner so it's nice and cool when you get home? Yes, it would be nice.
+
+        <h3> Goal: website control of AC </h3>
+        <p>
+        I wanted to measure room temperature/humidity and control the air conditioner from a website. Yes, you can already buy this sort of thing, but I wanted to start messing around with my <a href="#uno">arduino</a>.
+
+        <h3> The gist </h3>
+        <p>
+        I read in and stored the codes for the various functions on my AC remote with an <a href="#receiver">infrared receiver</a>.  Then I set up a program to shoot those codes back out of an <a href="#led">LED</a> on command.  I built a simple website as an interface to those commands. I also set up a temperature/humidity <a href="#sensor">sensor</a> and programmed it to take a reading every 15 minutes. 
+
+        <h3> Pics </h3>
+        <p> The web interface:
+        <img src="screenshot.png" />
+
+        <p> The arduino junk:
+        <img src="arduino_junk.jpg"/> <br />
+        You may notice two arduinos there. The one on the right has the IR receiver on it, which I only needed to use once to steal the codes off my remote; this arduino is connected to my personal computer. The left arduino has the temperature sensor and LED hooked up to it; this is connected to the webserver machine.
+
+        <p> The LED pointing at the air conditioner:
+        <img src="LED_and_AC.jpg" />
+
+
+        <h3> Action video </h3>
+        Finally, let's see this bad boy in action:
+        <iframe width="420" height="315" src="http://www.youtube.com/embed/scUkMQXd_ag" frameborder="0" allowfullscreen></iframe>
+
+        <br/><br/>
+        <a name="uno">[1]</a>
+        <a href="http://www.sparkfun.com/products/9950">Arduino Uno</a>
+        <br/>
+        <img src="http://dlnmh9ip6v2uc.cloudfront.net/images/products/09950-01_i_ma.jpg" />
+
+        <br/><br/>
+        <a name="receiver">[2]</a>
+        <a href="http://www.sparkfun.com/products/8554">IR Receiver Breakout</a>
+        <br/>
+        <img src="http://dlnmh9ip6v2uc.cloudfront.net/images/products/08554-03-L_i_ma.jpg" />
+
+        <br/><br/>
+        <a name="led">[3]</a>
+        <a href="http://www.sparkfun.com/products/9469">Infrared LED - 850nm - 1pcs</a>
+        <br/>
+        <img src="http://dlnmh9ip6v2uc.cloudfront.net/images/products/09469-1_i_ma.jpg" />
+
+        <br/><br/>
+        <a name="sensor">[4]</a>
+        <a href="http://www.sparkfun.com/products/10167">Humidity and Temperature Sensor - RHT03</a>
+        <br/>
+        <img src="http://dlnmh9ip6v2uc.cloudfront.net/images/products/10167-01_i_ma.jpg" />
+        </p>
+
+    </body>
+</html>
