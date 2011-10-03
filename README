@@ -15,3 +15,7 @@ GETTING STARTED
 5) run the server: python manage.py runserver
 6) go to http://127.0.0.1:8000/1/
 7) enjoy
+
+SOURCES FOR ARDUINO CODE
+http://www.ladyada.net/learn/sensors/ir.html
+http://www.arcfn.com/2009/09/arduino-universal-remote-record-and.html
