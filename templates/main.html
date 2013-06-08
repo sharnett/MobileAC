@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <title>Raspberry Pi</title>
+    <script>
+        function hi() { alert("This does nothing, sucka!"); }
+    </script>
+</head>
+<body>
+    <div id="main">
+<h1> Welcome to the Raspberry Pi webserver </h1>
+<hr>
+<p id="conditions"> Right now: <span id='reading'>{{reading}}</span>
+<img id="reload" src="{{ url_for('static', filename='reload.gif') }}" />
+<br> (last updated <span id='time'>{{time}}</span>)
+
+<div class="controller">
+    <h2> My AC </h2>
+    <hr>
+    <form action=''>
+        <p> Power:
+        <ul>
+            <li><input name='power' type='radio' value='on'>On</input>
+            <li><input name='power' type='radio' value='off' checked>Off</input>
+        </ul>
+        <p> Temperature:
+        <input type="number" name="temperature" min=60 max=90 step=1 value=78>
+        <p> Fan speed:
+        <ul>
+            <li><input name='speed' type='radio' value='lo' checked>lo</input>
+            <li><input name='speed' type='radio' value='med'>med</input>
+            <li><input name='speed' type='radio' value='hi'>hi</input>
+        </ul>
+        <p> Password:
+        <input type="password" name="password" placeholder="tittyback" size=12>
+        <br> <br>
+        <input class="submit" type="button" onclick="hi()" value="Send command to robot" />
+    </form>
+</div>
+</div>
+<script type=text/javascript> var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }}; </script>
+<script type=text/javascript src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+<script> 
+    $(function() {
+        $("#reload").on('click', function() {
+            $.getJSON($SCRIPT_ROOT + '/reload', {}, 
+                function(data) {
+                    $("#reading").text(data.reading);
+                    $("#time").text(data.time);
+                }
+            );
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

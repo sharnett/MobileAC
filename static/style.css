@@ -1,0 +1,58 @@
+body {
+    background-color: #0B0974;
+}
+#main {
+    background-color: #EEC;
+    font-size: x-large;
+    padding: 20px;
+    width: 500px;
+    margin: auto;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+#conditions {
+    margin: auto;
+    padding: 10px;
+}
+#reading {
+    background-color: #FFE;
+    font-size: larger;
+    border: 1px solid #0B0974;
+    padding: 1px;
+}
+#reload:hover {
+    background-color: #DDB;
+}
+#reload:active {
+    background-color: #CCA;
+}
+.controller {
+    display: block;
+    background-color: #FFDD73;
+    border: 3px solid black;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    width: 200px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.submit {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #0B0974;
+    color: #EEC;
+    border: 2px solid black;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+.submit:hover {
+    color: #0B0974;
+    background-color: #FFE;
+}

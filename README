@@ -19,3 +19,7 @@ GETTING STARTED
 SOURCES FOR ARDUINO CODE
 http://www.ladyada.net/learn/sensors/ir.html
 http://www.arcfn.com/2009/09/arduino-universal-remote-record-and.html
+
+HELP FOR SETTING UP TEMP/HUMIDITY SENSOR
+http://learn.adafruit.com/dht
+https://github.com/sharnett/DHT-sensor-library
