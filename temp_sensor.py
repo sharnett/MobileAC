@@ -12,10 +12,12 @@ class TempSensor:
             return self.connection.readline()
         except:
             return 'failed'
+    def command(self, c):
+        self.connection.write(c)    
 
 if __name__ == '__main__':
     x = raw_input('q to quit: ')
     t = TempSensor()
     while x != 'q':
-        print t.read()
+        t.command(x)
         x = raw_input('q to quit: ')
