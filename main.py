@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify
 from random import random
-from test import TempSensor
+from temp_sensor import TempSensor
 from datetime import datetime
 app = Flask(__name__)
 t = TempSensor()

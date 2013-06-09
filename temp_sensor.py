@@ -3,7 +3,7 @@ from time import sleep
 
 class TempSensor:
     def __init__(self):
-        device = '/dev/ttyACM0'
+        device = '/dev/tty.usbmodemfd121'
         self.connection = serial.Serial(device, 9600)
         sleep(2)
     def read(self):
